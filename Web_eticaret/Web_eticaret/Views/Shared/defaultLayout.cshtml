@@ -1,0 +1,861 @@
+﻿@using Web_eticaret.Models
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <!-- Basic page needs
+    ============================================ -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lilama - Mega Shop Responsive HTML5 Template</title>
+    <meta name="description" content="">
+    <!-- Mobile specific metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/img/fav_icon.ico">
+    <!--All Fonts  Here -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- ALL CSS FILES HERE -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
+    <!-- fancybox CSS -->
+    <link rel="stylesheet" href="/Content/css/fancybox/jquery.fancybox.css">
+    <!--bxslider CSS -->
+    <link rel="stylesheet" href="/Content/css/jquery.bxslider.min.css">
+    <!-- owl.carousel CSS-->
+    <link rel="stylesheet" href="/Content/css/owl.carousel.css">
+    <!-- owl.carousel transitions CSS-->
+    <link rel="stylesheet" href="/Content/css/owl.transitions.css">
+    <!-- owl.theme CSS-->
+    <link rel="stylesheet" href="/Content/css/owl.theme.css">
+    <!-- rs-plugin CSS -->
+    <!-- slider revolution css settings -->
+    <link rel="stylesheet" type="text/css" href="/Content/lib/rs-plugin/css/settings.css" media="screen" />
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/Content/css/animate.css">
+    <!-- jquery-ui-->
+    <link rel="stylesheet" href="/Content/css/jquery-ui.css">
+    <!-- css for mobile menu-->
+    <link rel="stylesheet" href="/Content/css/mobile_menu.min.css">
+    <!-- normalize CSS -->
+    <link rel="stylesheet" href="/Content/css/normalize.css">
+    <!-- main CSS -->
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/Content/style.css">
+    <!-- responsive CSS -->
+    <link rel="stylesheet" href="/Content/css/responsive.css">
+
+    <!-- modernizr js -->
+    <script src="/Content/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jquery js -->
+    <script src="/Content/js/vendor/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- start preloader -->
+    <div id="loader-wrapper">
+        <div class="logo"></div>
+        <div id="loader">
+        </div>
+    </div>
+    <!-- end preloader -->
+    <!-- header area start -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="logo-area">
+                        <a href="/Home/Index"><img src="/Content/img/logo.png" alt="logo" /> </a>
+                        <span style="background-color:orangered;color:white;">
+                            @ViewBag.dolar
+                        </span>
+                    </div>
+                    <br />
+                    @if (Session["email"] != null)
+                    {
+                        <span style="background-color:white;color:red;font-size:20px;">  @Session["email"]  </span>
+                    }
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <div class="top-nav-area">
+                        <ul>
+
+
+
+
+                            <li>
+                                <a href="/Home/EnYeniUrunler">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            EN YENİ ÜRÜNLER
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+
+
+                            @*<li>
+            <a href="/Home/EnYeniUrunler">
+                <i class="fa fa-newspaper-o"></i>
+                <div class="nav-select">
+                    <div class="text_menu">
+                        <span style="text-transform:lowercase"> EN YENİ ÜRÜNLER  </span>
+                    </div>
+                </div>
+            </a>
+        </li>
+            Bu şekilde yazılırsa EN YENİ ÜRÜNLER text-transform:lowercase ile hepsi küçük yazılır.
+                                 text-transform:capitalize yazılırsa Baş Harfi büyük olur. Bunu yaparken en yeni ürünlerin hepsini büyük harfle
+                                yazılmaması gerek 9.ders 4.video dk:3.28
+
+                            *@
+
+
+
+
+
+
+                            <li>
+                                <a href="/Home/IndirimliUrunler">
+                                    <i class="fa fa-arrow-down"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            İNDİRİMLİ ÜRÜNLER
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/Home/OzelUrunler">
+                                    <i class="fa fa-star"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            ÖZEL ÜRÜNLER
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Home/OneCikanlar">
+                                    <i class="fa fa-heart-o"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            ÖNE ÇIKANLAR
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Home/CokSatanlar">
+                                    <i class="fa fa-exchange"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            ÇOK SATANLAR
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Home/Siparislerim">
+                                    <i class="fa fa-key"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            SİPARİŞLERİM
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+
+
+
+
+                            <li>
+                                <a href="@Url.Action("Cart","Home")">
+                                    <div class="cart_area">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <div class="nav-select">
+                                            <div class="text_menu">
+                                                SEPETİM
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+
+
+
+
+                                <div class="cart-sub">
+
+                                    @{
+                                        int i = 0;
+                                        int toplamadet = 0;
+                                        decimal toplamprice = 0;
+                                        decimal toplamadet_price_kdvli = 0;
+                                        decimal toplamadet_price_kdvsiz = 0;
+
+                                        cls_siparisler s = new cls_siparisler();
+
+                                        HttpCookie setcookie = Request.Cookies.Get("sepetim");
+
+                                        List<cls_siparisler> sepet_tablo_detay;
+
+                                        //sepet boşsa
+                                        if (setcookie == null)
+                                        {
+                                            setcookie = new HttpCookie("sepetim");
+                                            s.sepet = "";
+                                            sepet_tablo_detay = null;
+                                        }
+                                        else
+                                        {
+                                            s.sepet = setcookie.Value.ToString();
+                                            sepet_tablo_detay = s.sepetiyazdir();
+                                        }
+
+                                        if (sepet_tablo_detay == null)
+                                        {
+                                            <div class="sub-button">
+                                                <a href="">SEPETİNİZ &nbsp;&nbsp; BOŞ</a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+
+                                            foreach (var item in sepet_tablo_detay as List<cls_siparisler>)
+                                            {
+                                                toplamadet += item.adet;
+                                                toplamprice += item.Price;
+
+                                                toplamadet_price_kdvli += (((item.Kdv * item.Price) / 100) + item.Price) * item.adet;
+
+                                                toplamadet_price_kdvsiz += item.Price * item.adet;
+
+                                                i++;
+                                            }
+
+                                            ViewBag.kalem = i;
+                                            ViewBag.toplamadet = toplamadet;
+                                            ViewBag.sepet_tutari_kdvsiz = Math.Round(toplamadet_price_kdvsiz, 2);
+                                            ViewBag.sepet_tutari_kdvli = Math.Round(toplamadet_price_kdvli, 2);
+
+                                            ViewBag.toplamkdv = Math.Round(toplamadet_price_kdvli, 2) - Math.Round(toplamadet_price_kdvsiz, 2);
+
+                                            <div class="all-cart">
+                                                <p><b>Kalem :</b> <span>@ViewBag.kalem</span> </p>
+                                                <p><b>Adet :</b> <span>@ViewBag.toplamadet</span> </p>
+                                                <p><b>Sepet Tutarı(Kdv Hariç) :</b> <span>@ViewBag.sepet_tutari_kdvsiz TL</span> </p>
+                                                <p><b>Kdv :</b> <span>@ViewBag.toplamkdv TL</span> </p>
+                                            </div>
+
+                                            <h3>
+                                                @ViewBag.kalem ÜRÜN<span>
+                                                    TOPLAM &nbsp;&nbsp; <span>
+                                                        @ViewBag.sepet_tutari_kdvli TL
+                                                    </span>
+                                                </span>
+                                            </h3>
+
+                                            <div class="sub-button">
+                                                <a href="@Url.Action("Cart","Home")">SEPET SAYFAMA GİT</a>
+                                            </div>
+                                        }
+                                    }
+
+                                </div>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- main menu area start  -->
+    <div class="main-menu-area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-3 col-lg-3">
+                    <div class="menu-cat-area">
+                        <h3 class="nk-module-title"><span style="font-size:30px;">KATEGORİLER</span></h3>
+                        <div class="nk-all-items">
+                            <div class="sp-module-content">
+                                <!-- treeview -->
+                                <div class="vina-treeview-virtuemart" id="vina-treeview-virtuemart93">
+                                    <ul class="level0 treeview">
+
+
+                                        @foreach (var item in ViewBag.Kategoriler as List<tbl_Categories>)
+                                        {
+                                            if (item.ParentID == 0)
+                                            {
+                                                <li>
+                                                    <a title="@item.CategoryName" href="/Home/Kategoriler/@item.CategoryID" class="baby">
+                                                        <span class="catTitle ">@item.CategoryName</span>
+                                                    </a>
+
+
+                                                    @foreach (var subitem in ViewBag.Kategoriler as List<tbl_Categories>)
+                                                    {
+
+                                                        if (item.CategoryID == subitem.ParentID)
+                                                        {
+                                                            <ul class="sub-menu treeview" style="display:none;">
+                                                                <li class="expandable">
+                                                                    <a title="@subitem.CategoryName" href="/Home/Kategoriler/@subitem.CategoryID" class="">
+                                                                        <span class="catTitle ">@subitem.CategoryName</span>
+                                                                    </a>
+
+                                                                </li>
+                                                            </ul>
+                                                        }
+
+                                                    }
+
+
+
+
+
+
+
+
+                                                </li>
+                                            }
+
+                                        }
+
+
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-3 col-md-9 col-lg-9">
+                    <nav>
+                        <ul>
+
+                            <li><a href="/Home/DetayliArama">DETAYLI ARAMA</a></li>
+                            <li><a href="/Home/UyeOl">ÜYE OL</a></li>
+                            <li><a href="/Home/Giris">GİRİŞ</a></li>
+                            <li><a href="/Home/Cikis">ÇIKIŞ</a></li>
+                            <li><a href="/Home/Hakkimizda">HAKKIMIZDA</a></li>
+                            <li><a href="/Home/İletisim">İLETİŞİM</a></li>
+                            <li>
+                                <span style="color:white;background-color:orangered;">
+                                    @ViewBag.sehir
+                                    @ViewBag.havadurumu Derece ,
+                                    Hava @ViewBag.durum
+
+                                    <img src=" @ViewBag.icon" />
+                                </span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main menu area end  -->
+    <!-- mobile-menu-area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home2</a>
+                                    <ul>
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="index-2.html">Home 2</a></li>
+                                        <li><a href="index-3.html">Home 3</a></li>
+                                        <li><a href="index-4.html">Home 4</a></li>
+                                        <li><a href="index-5.html">Home 5</a></li>
+                                        <li><a href="index-6.html">Home 6</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">About Us1</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li>
+                                    <a href="index.html#">Pages</a>
+                                    <ul>
+                                        <li><a href="blog-post.html">blog post page</a></li>
+                                        <li><a href="cart.html">cart page</a></li>
+                                        <li><a href="checkout.html">checkout page</a></li>
+                                        <li><a href="login.html">login page</a></li>
+                                        <li><a href="shop.html">shop page</a></li>
+                                        <li><a href="single-product.html">single product page</a></li>
+                                        <li><a href="wishlist.html">wishlist</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="corporate.html">Corporate</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mobile-menu-area end -->
+    <!-- search area start  -->
+    <div class="nk-search-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                    <div class="nk-search">
+                        <div class="search_input">
+                            <input lang="tr" type="text" id="search" name="search" placeholder="Ürün,Kategori,Marka ile Ara" style="width:767px;" />
+                            <br />
+
+                            <div id="dv" style="width: 770px; height: auto; margin-top: 23px; border-style: solid; background-color: white; border-color: #f47e1e; position: absolute; z-index: 10000;">
+
+                                <ul id="sul">
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main menu area end  -->
+
+
+
+
+
+    @RenderBody()
+
+
+
+
+
+    <!-- Brand area start -->
+    <div class="brand-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="all-p-title">
+                        <h3>MARKALAR</h3>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="all-brand singal-p">
+
+
+
+                    @foreach (var item in ViewBag.Markalar as List<tbl_Suppliers>)
+                    {
+                        <div class="singal_brand">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <a href="/Home/Markalar/@item.SupplierID"> <img src="~/Content/resimler/@item.PhotoPath" alt="" style="height:120px;" /> </a>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer top area start -->
+    <section id="sp-bottom-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 sp-bottomcontact">
+                    <div class="sp-column ">
+                        <div class="sp-module ">
+                            <h3 class="sp-module-title"><span>İLETİŞİM</span></h3>
+                            <div class="sp-module-content">
+                                <div class="custom">
+                                    <div class="t-bottom-content">
+                                        <p class="phone">
+                                            <em class="fa fa-phone"></em>
+                                            <span class="ft-content">@ViewBag.telefon</span>
+                                        </p>
+                                        <p class="email">
+                                            <em class="fa fa-envelope"></em>
+                                            <span class="ft-content">@ViewBag.email</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 sp-bottomcontact">
+                    <div class="sp-column ">
+                        <div class="sp-module Subscribe-area">
+                            <h3 class="sp-module-title"><span>HAKKIMIZDA</span></h3>
+                            <div class="sp-module-content">
+                                <p>10 numara proje yaptık... </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="sp-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <p>Copyright &copy; 2022 Yılında Burak Büyükdağdaş Tarafından Yazıldı <a href="" target="_blank">Her Hakkı Saklıdır.</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer top area end -->
+    <!-- ALL JS FILES HERE -->
+    <!-- price_slider js -->
+    <script src="/Content/js/price_slider.js"></script>
+    <!-- bootstrap js -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <!-- owl.carousel.min js -->
+    <script src="/Content/js/owl.carousel.min.js"></script>
+    <!-- slicknav js -->
+    <script src="/Content/js/jquery.mobilemenu.js"></script>
+    <!-- parallax js -->
+    <script src="/Content/js/parallax.js"></script>
+    <!-- treeview js -->
+    <script src="/Content/js/jquery.treeview.js"></script>
+    <!-- jquery mixitup js -->
+    <script src="/Content/js/jquery.mixitup.min.js"></script>
+    <!-- jquery.scrollUp js -->
+    <script src="/Content/js/jquery.scrollUp.min.js"></script>
+    <!-- jquerye levatezoom js -->
+    <script src="/Content/js/jquery.elevatezoom.js"></script>
+    <!-- jquerye countdown js -->
+    <script src="/Content/js/countdown.js"></script>
+    <!-- jquery fancybox js -->
+    <script src="/Content/js/jquery.fancybox.pack.js"></script>
+    <!-- jquery bx-slider js -->
+    <script src="/Content/js/bx-slider.min.js"></script>
+    <!-- jquery.easing js -->
+    <script src="/Content/js/jquery.easing.1.3.min.js"></script>
+    <!--RS Lib js -->
+    <script type="text/javascript" src="/Content/lib/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="/Content/lib/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="/Content/js/rs-slider.js"></script>
+    <!-- jquery.appear js -->
+    <script src="/Content/js/jquery.appear.js"></script>
+    <!-- wow js -->
+    <script src="/Content/js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+
+
+    <!-- Google Map js -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var mapOptions = {
+                zoom: 15,
+                scrollwheel: false,
+                center: new google.maps.LatLng(@ViewBag.x,@ViewBag.y)
+            };
+
+            var map = new google.maps.Map(document.getElementById('googleMap'),
+                mapOptions);
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                animation: google.maps.Animation.BOUNCE,
+                icon: '/Content/img/map-marker.png',
+                map: map
+            });
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+
+
+    <!-- plugins js -->
+    <script src="/Content/js/plugins.js"></script>
+    <!-- main js -->
+    <script src="/Content/js/main.js"></script>
+
+
+    <script src="~/Content/js/sadece_numara.js"></script>
+
+
+    <script>
+
+        /* kategoriler ana sayfada acık görünecek,diger alt sayfalarda kapalı görünecek*/
+        function getCurrentFileName() {
+            var pagePathName = window.location.pathname; //url bilgisini alırım
+
+            if (pagePathName == "/Home/Index") {
+                pagePathName = "";
+            }
+            return pagePathName.substring(pagePathName.lastIndexOf("/") + 1)
+        }
+
+        if (getCurrentFileName() == "") {
+            $(".nk-all-items").css("display", "block")
+        }
+        else {
+            $(".nk-all-items").css("display", "none")
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+<style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f47e1e;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        z-index: 21474836474;
+    }
+
+    #modal {
+        position: absolute;
+        background: url(~/Content/img/tint20.png) 0 0 repeat;
+        background: white;
+        border-radius: 14px;
+        padding: 10px;
+        z-index: 21474836474;
+    }
+
+    #content {
+        min-width: 650px;
+        min-height: 120px;
+        border-radius: 10px;
+        background: black;
+        padding: 30px 40px 20px 120px;
+        color: white;
+        font-size: 25px;
+        z-index: 21474836474;
+    }
+
+    #close {
+        position: absolute;
+        background: url(~/Content/img/kapat.png);
+        width: 47px;
+        height: 47px;
+        display: block;
+        top: 10px;
+        right: 5px;
+        z-index: 21474836474;
+        color: white;
+    }
+</style>
+
+
+@{
+
+    if (Session["Mesaj"] != null && Session["Mesaj"].ToString() != "")
+    {
+        <text>
+            <script type="text/javascript">
+    $(document).ready(function () {
+        modal.open({ content: "@Session["Mesaj"].ToString()" });
+    });
+            </script>
+        </text>
+        Session["Mesaj"] = "";
+    }
+
+}
+
+<script>
+    var modal = (function () {
+        var
+            method = {},
+            $overlay,
+            $modal,
+            $content,
+            $close;
+
+        // Center the modal in the viewport
+        method.center = function () {
+            var top, left;
+
+            //ekrana cıkan popup penceresinin konumunu belirler
+            top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+            // top = 380;
+            left = Math.max($(window).width() - $modal.outerWidth(), 0) / 4;
+            //  left =  10;
+
+            $modal.css({
+                top: top + $(window).scrollTop(),
+                left: left + $(window).scrollLeft()
+            });
+        };
+
+        // Open the modal
+        method.open = function (settings) {
+            $content.empty().append(settings.content);
+
+            $modal.css({
+                width: settings.width || 'auto',
+                height: settings.height || 'auto'
+            });
+
+            method.center();
+            $(window).bind('resize.modal', method.center);
+            $modal.show();
+            $overlay.show();
+        };
+
+        // Close the modal
+        method.close = function () {
+            $modal.hide();
+            $overlay.hide();
+            $content.empty();
+            $(window).unbind('resize.modal');
+        };
+
+        // Generate the HTML and add it to the document
+        $overlay = $('<div id="overlay"></div>');
+        $modal = $('<div id="modal"></div>');
+        $content = $('<div id="content"></div>');
+        $close = $('<a id="close" href="#">kapat</a>');
+
+        $modal.hide();
+        $overlay.hide();
+        $modal.append($content, $close);
+
+        $(document).ready(function () {
+            $('body').append($overlay, $modal);
+        });
+
+        $close.click(function (e) {
+            e.preventDefault();
+            method.close();
+        });
+
+        return method;
+    }());
+
+    // Wait until the DOM has loaded before querying the document
+    $(document).ready(function () {
+
+        //$.get('ajax.html', function (data) {
+        //    modal.open({ content: data });
+        //});
+
+        //$('a#howdy').click(function (e) {
+        //    modal.open({ content: "Hows it going?" });
+        //    e.preventDefault();
+        //});
+    });
+</script>
+
+
+<script>
+    $("#btn1").click(function () {
+        $("#p1").toggle(1000);
+    });
+</script>
+
+
+<script>
+
+    /*arama alanı*/
+    $("#search").keyup(function () {
+        var id = $("#search").val();
+
+        var iurun = 0;
+        var imar = 0;
+        var ikat = 0;
+
+        if (id != "") {
+            $.ajax({
+                url: '/Home/urunlergetir/' + id,
+                type: 'POST',
+                ContentType: "application/json;charset=UTF-8",
+                success: function (result) {
+                    // alert(result)
+                    $("#sul").remove();
+                    $("#dv").append("<ul id='sul'>");
+
+
+                    $.each(result, function (key, value) {
+
+                        if (value.KATEGORI != 0) {
+                            if (ikat == 0) {
+                                $("#sul").append("<li><hr></li>")
+                                $("#sul").append("<li><b>KATEGORİLER</b></li>")
+                                ikat++;
+                            }
+                            $("#sul").append("<li>  <a href='/Home/kategoriler/" + value.KATEGORI + "'>" + value.ARAMAISMI + "</a></li>")
+                        } //kategori bitis
+
+                        if (value.MARKA != 0) {
+                            if (imar == 0) {
+                                $("#sul").append("<li><hr></li>")
+                                $("#sul").append("<li><b>MARKALAR</b></li>")
+                                imar++;
+                            }
+                            $("#sul").append("<li>  <a href='/Home/markalar/" + value.MARKA + "'>" + value.ARAMAISMI + "</a></li>")
+                        } //marka bitis
+
+                        if (value.URUN != 0) {
+                            if (iurun == 0) {
+                                $("#sul").append("<li><hr></li>")
+                                $("#sul").append("<li><b>ÜRÜNLER</b></li>")
+                                iurun++;
+                            }
+                            $("#sul").append("<li>  <a href='/Home/detaylar/" + value.URUN + "'>" + value.ARAMAISMI + "</a></li>")
+                        } //marka bitis
+
+                    })
+                }
+            })
+
+        }
+        else {
+            $("#sul").remove();
+        }
+    })
+</script>

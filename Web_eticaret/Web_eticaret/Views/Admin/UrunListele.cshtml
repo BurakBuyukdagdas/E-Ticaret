@@ -1,0 +1,189 @@
+﻿@using Web_eticaret.Models
+@model List<vw_tum_urunler>
+
+@{
+    ViewBag.Title = "UrunListele";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<br />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box blue-hoki">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Datatable with TableTools
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead style="background-color:lightgrey">
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th colspan="2">
+                                ÜRÜN ADI
+                            </th>
+                            <th>
+                                FİYAT
+                            </th>
+                            <th>
+                                KATEGORİ
+                            </th>
+                            <th>
+                                MARKA
+                            </th>
+                            <th>
+                                STOK
+                            </th>
+                            <th>
+                                İNDİRİM
+                            </th>
+                            <th>
+                                KDV
+                            </th>
+                            <th>
+                                STATÜS
+                            </th>
+                            <th>
+                                AKTİF/PASİF
+                            </th>
+                            <th>
+                                BUNABAKAN
+                            </th>
+                            <th>
+                                --
+                            </th>
+                            <th>
+                                --
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.ProductID
+                                </td>
+                                <td>
+                                    @item.ProductName
+                                </td>
+                                <td>
+                                    <img src="~/Content/resimler/@item.PhotoPath" alt="Alternate Text" style="width:50px;height:50px;" />
+                                </td>
+                                <td>
+                                    @item.Price
+                                </td>
+                                <td>
+                                    @item.CategoryName
+                                </td>
+                                <td>
+                                    @item.BrandName
+                                </td>
+                                <td>
+                                    @item.Stok
+                                </td>
+                                <td>
+                                    @item.Discount
+                                </td>
+                                <td>
+                                    @item.Kdv
+                                </td>
+                                <td>
+                                    @if (item.statusID == 1)
+                                    {
+                                        <label style="background-color: #ff6a00; color: white;">GÜN</label>
+                                    }
+                                    else if (item.statusID == 2)
+                                    {
+                                        <label style="background-color:#b200ff;color:white;">SLİDER</label>
+                                    }
+                                    else if (item.statusID == 3)
+                                    {
+                                        <label style="background-color:#4cff00">ÖZEL</label>
+                                    }
+                                    else if (item.statusID == 4)
+                                    {
+                                        <label style="background-color: #ff006e; color: white;">YILDIZ</label>
+                                    }
+                                    else
+                                    {
+                                        <label>.</label>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Active == true)
+                                    {
+                                        <label style="background-color: white; color: black;">AKTİF</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="background-color: black; color: white;">PASİF</label>
+                                    }
+                                </td>
+
+
+
+
+
+
+                                <td>
+                                    @if (item.BunaBakanlar == 1)
+                                    {
+                                        <label style="background-color: #ff6a00; color: white;">1</label>
+                                    }
+                                    else if (item.BunaBakanlar == 2)
+                                    {
+                                        <label style="background-color:#b200ff;color:white;">2</label>
+                                    }
+                                    else if (item.BunaBakanlar == 3)
+                                    {
+                                        <label style="background-color:#4cff00">3</label>
+                                    }
+                                    else if (item.BunaBakanlar == 4)
+                                    {
+                                        <label style="background-color: #ff006e; color: white;">4</label>
+                                    }
+                                    else if (item.BunaBakanlar == 5)
+                                    {
+                                        <label style="background-color: #808080; color: white;">5</label>
+                                    }
+                                    else
+                                    {
+                                        <label>.</label>
+                                    }
+                                </td>
+
+
+
+
+
+
+                                <td>
+                                    <a href="/Admin/UrunGuncelle/@item.ProductID" class="btn btn-primary">GÜNCELLE</a>
+                                </td>
+                                <td>
+                                    <a href="/Admin/UrunSil/@item.ProductID" class="btn btn-danger" onclick="return confirm('Kayıt Silinsin mi?')">SİL</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+
+    </div>
+</div>
+<!-- END PAGE CONTENT-->

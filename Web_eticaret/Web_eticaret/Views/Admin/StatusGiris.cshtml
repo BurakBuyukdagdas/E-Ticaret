@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "StatusGiris";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="col-md-6 ">
+
+    <!-- BEGIN SAMPLE FORM PORTLET-->
+    <div class="portlet box purple ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i> STATÜ GİRİŞ FORMU
+            </div>
+            <div class="tools">
+                <a href="" class="collapse">
+                </a>
+                <a href="#portlet-config" data-toggle="modal" class="config">
+                </a>
+                <a href="" class="reload">
+                </a>
+                <a href="" class="remove">
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form" method="post" action="/Admin/StatusGiris">
+                <div class="form-body">
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">STATÜ ADI</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" name="StatusName">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-actions right1">
+                    <button type="submit" class="btn purple">KAYDET</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END SAMPLE FORM PORTLET-->
+
+</div>
+

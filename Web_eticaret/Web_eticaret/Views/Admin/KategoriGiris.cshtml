@@ -1,0 +1,61 @@
+﻿@using Web_eticaret.Models
+@model List<tbl_Categories>
+
+@{
+    ViewBag.Title = "KategoriGiris";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-2 "></div>
+
+    <div class="col-md-8 ">
+
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet box green ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> KATEGORİ GİRİŞ FORMU
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="" class="reload">
+                    </a>
+                    <a href="" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form" method="post" action="/Admin/KategoriGiris">
+                    <div class="form-body">
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">SEÇİNİZ</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("ParentID", (IEnumerable<SelectListItem>)ViewData["sitemenuList"], "Seçiniz", new { @class = "form-control input-lg" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">KATEGORİ ADI</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="CategoryName">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-actions right1">
+                        <button type="submit" class="btn green">KAYDET</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+
+    </div>
+</div>

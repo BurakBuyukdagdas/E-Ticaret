@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e361fd07c61b48bfa28e766ebeccda6f" Name="Diagram1">
+        <EntityTypeShape EntityType="burak_eticaretModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Categories" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Orders" Width="1.5" PointX="8" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Products" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Suppliers" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Users" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_arama" Width="1.5" PointX="4.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_siparislerim" Width="1.5" PointX="6.75" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="burak_eticaretModel.FK_tbl_Products_tbl_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="burak_eticaretModel.FK_tbl_Orders_tbl_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="burak_eticaretModel.FK_tbl_Products_tbl_Suppliers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Settings" Width="1.5" PointX="8.375" PointY="5.75" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_aktif_urunler" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_urun_detaylari" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_tum_urunler" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Messages" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="burak_eticaretModel.tbl_Status" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="burak_eticaretModel.FK_tbl_Products_tbl_Status" />
+        <EntityTypeShape EntityType="burak_eticaretModel.vw_urunler" Width="1.5" PointX="9.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

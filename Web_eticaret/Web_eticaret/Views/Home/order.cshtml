@@ -1,0 +1,245 @@
+﻿@using Web_eticaret.Models
+@model tbl_Users
+
+
+@{
+    ViewBag.Title = "order";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<!-- wishlist area start  -->
+<div class="wishlist-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 ">
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 ">
+                        <div class="cart_totals">
+                            <h2>SEPET ÖZETİ</h2>
+                            <div class="total_table">
+                                <table class="table-responsive">
+                                    <tbody>
+                                        <tr class="cart-subtotal">
+                                            <th>ADINIZ SOYADINIZ</th>
+                                            <td><span class="amount">@Model.NameSurname</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>EMAİL</th>
+                                            <td>@Model.Email</td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>TELEFON</th>
+                                            <td>@Model.Telephone</td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>FATURA ADRESİ</th>
+                                            <td>@Model.InvoicesAddres</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- wishlist area end  -->
+
+
+<form action="@Url.Action("order","Home")" method="post">
+    <!-- wishlist area start  -->
+    <div class="wishlist-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 ">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 ">
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 ">
+                            <div class="cart_totals">
+                                <h2>KREDİ KART BİLGİLERİNİZİ GİRİNİZ</h2>
+                                <div class="total_table">
+                                    <table class="table-responsive">
+                                        <tbody>
+                                            <tr class="cart-subtotal">
+                                                <th>KREDİ KART NO</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" name="kredikartno" value="" maxlength="16" required onkeypress="return numberonly(this, event);" />
+                                                        @*onkeypress klavyede harfe basınca sadece rakam uyarısı veririr JS dosyasından kontrol EDİLİR. JSSADECENUMARA*@
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr class="shipping">
+                                                <th>AY</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" name="ay" value="" maxlength="2" required onkeypress="return numberonly(this, event);" />
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr class="shipping">
+                                                <th>YIL</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" name="yil" value="" maxlength="2" required onkeypress="return numberonly(this, event);" />
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr class="shipping">
+                                                <th>CVS</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" name="cvs" value="" maxlength="3" required onkeypress="return numberonly(this, event);" />
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- wishlist area end  -->
+    <!-- wishlist area start  -->
+    <div class="wishlist-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 ">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 ">
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 ">
+                            <div class="cart_totals">
+                                <h2>FATURA BİLGİLERİNİZİ GİRİNİZ</h2>
+                                <div class="total_table">
+                                    <table class="table-responsive">
+                                        <tbody>
+                                            <tr class="cart-subtotal">
+                                                <th>Fatura Tipi</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        @Html.RadioButton("faturatipi", "rbBireysel", new { value = "rbBireysel", @checked = true }) Bireysel
+
+                                                        @Html.RadioButton("faturatipi", "rbKurumsal", new { value = "rbKurumsal" }) Kurumsal
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            @* bireysel radiobuton secilirse ,burası görünecek  *@
+                                            <tr class="shipping" id="tr_tckimlik">
+                                                <th>TC KİMLİKNO</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" id="txt_tckimlikno" name="txt_tckimlikno" value="" maxlength="11" required onkeypress="return numberonly(this, event);" />
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            @* kurumsal radiobuton secilirse ,burası görünecek  *@
+                                            <tr class="shipping" id="tr_vergino" style="display:none;">
+                                                <th>VERGİ NO</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        <input type="text" id="txt_vergino" name="txt_vergino" value="" maxlength="10" onkeypress="return numberonly(this, event);" style="background-color:cadetblue;" />
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- wishlist area end  -->
+    <!-- wishlist area start  -->
+    <div class="wishlist-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 ">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 ">
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 ">
+                            <div class="cart_totals">
+                                <h2>SATIŞ SÖZLEŞMESİ</h2>
+                                <div class="total_table">
+
+                                    <p>Satılan ürün iadesi 2 gün içinde yapılabilir.Kırılan ürünlerden şirketimiz sorumlu değildir.</p>
+
+                                    <br />
+                                    <div class="total_table">
+                                        <strong>
+                                            <label>
+                                                @Html.CheckBox("chk_kabulediyorum", false)
+                                            Yukarıdaki bilgilendirmeleri okudum,kabul ediyorum.
+                                        </label>
+                                    </strong>
+                                </div>
+
+                                <div class="submit_crt" id="div_siparisionayla" style="display:none;">
+                                    <div class="col-lg-8"></div>
+                                    <a href="@Url.Action("order","Home")" title="Siparişi Onayla">
+                                        <input type="submit" class="update_cart" value="SİPARİŞİ ONAYLA" />
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- wishlist area end  -->
+</form>
+
+<script>
+    $('input[type = radio][name = faturatipi]').on('change', function () {
+        // Ödeme aşamasında bireysel fatura yada kurumsal fatura seçiminde Block açmak. None ise kapamak anlamında olmak üzere.
+        if ($(this).val() == "rbBireysel") { //Bireysele girince 
+            $("#tr_tckimlik").css("display", "block") //TC kimlik no açılıp
+            $("#tr_vergino").css("display", "none") // Vergi nosu kapanır.
+            $("#txt_tckimlikno").attr("required", "true")// Bireysel de required yani zorunlu giriş Açık olur.
+            $("#txt_vergino").removeAttr("required") // Kurumsalda required yani zorunlu giriş Silinir.
+        }
+        else { //Fatura kurumsal ise
+            $("#tr_tckimlik").css("display", "none") // TC no kapanır
+            $("#tr_vergino").css("display", "block") // Vergi no açılır.
+            $("#txt_vergino").attr("required", "true")  // Kurumsalda required yani zorunlu giriş Açık olur.
+            $("#txt_tckimlikno").removeAttr("required")  // Bireysel de required yani zorunlu giriş Silinir.
+        }
+    })
+
+    $('input[type = checkbox][name = chk_kabulediyorum]').on('change', function () {
+        // Ön Bilgilendirme okundu check basılınca Siparişi ver butonu çıkar.
+        if ($(this).prop('checked')) {
+            $("#div_siparisionayla").css("display", "block") //Okudum kabul ediyorum basınca Siparişi onayla Butonu aktif
+        }
+        else {
+            $("#div_siparisionayla").css("display", "none") //Okudum kabul ediyorum basmadan Siparişi onaylıyorum butonu görünmez.
+        }
+
+    })
+</script>

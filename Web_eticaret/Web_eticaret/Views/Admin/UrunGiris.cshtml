@@ -1,0 +1,134 @@
+﻿    
+@{
+    ViewBag.Title = "UrunGiris";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-2 "></div>
+
+
+    <div class="col-md-8 ">
+
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet box purple ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> ÜRÜN GİRİŞ FORMU
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="" class="reload">
+                    </a>
+                    <a href="" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form ">
+
+                @using (Html.BeginForm("UrunGiris", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+                {
+                    <div class="form-body ">
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">ÜRÜN ADI</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="ProductName" required maxlength="50">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">FİYAT</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Price" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">KATEGORİ SEÇİNİZ</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("CategoryID", (IEnumerable<SelectListItem>)ViewData["CategoryList"], "Seçiniz", new { @class = "form-control input-lg", @required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">MARKA SEÇİNİZ</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("SupplierID", (IEnumerable<SelectListItem>)ViewData["SupplierList"], "Seçiniz", new { @class = "form-control input-lg", @required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">STOK</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Stok" required onkeypress="return numberonly(this, event);">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">İNDİRİM</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Discount" onkeypress="return numberonly(this, event);">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">DURUM SEÇİNİZ</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("StatusID", (IEnumerable<SelectListItem>)ViewData["StatusList"], "Seçiniz", new { @class = "form-control input-lg" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">ANAHTAR KELİMELER</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Keywords">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">KDV</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Kdv" onkeypress="return numberonly(this, event);" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">BUNA BAKANLAR</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="BunaBakanlar" onkeypress="return numberonly(this, event);">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">NOTLAR</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control input-lg" name="Notes">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Resim Seçiniz</label>
+                            <div class="col-md-9">
+                                <input type="file" class="form-control input-lg" name="fileuploader" required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions right1">
+                        <button type="submit" class="btn purple">KAYDET</button>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+
+    </div>
+</div>
